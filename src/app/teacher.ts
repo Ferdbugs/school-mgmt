@@ -1,8 +1,8 @@
-export class Student {
+export class Teacher {
     id: number;
     firstName: String;
     lastName: String;
     email: String;
-    grade: number;
+    subject: String[];
     type: String;
 }

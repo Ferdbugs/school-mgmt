@@ -1,0 +1,20 @@
+<h2 class="mt-4 mb-4">Subject List</h2>
+<table class="table table-striped">
+    <thead class = "table">
+        <tr>
+            <th>Subject Name</th>
+            <th>Grade</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr *ngFor="let subject of subjects">
+            <td class="align-middle">{{subject.subjectName}}</td>
+            <td class="align-middle">{{subject.grade}}</td>
+            <td>
+                <button (click)="deleteSubject(subject.id)" class="btn btn-danger">Delete</button>   
+            </td>
+        </tr>
+    </tbody>
+</table>
