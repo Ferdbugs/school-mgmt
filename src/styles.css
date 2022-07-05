@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgb(51, 95, 238);
+  text-align: center;
+  color: white;
+}
+
+.nav-link {
+  color: white;
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 16px;
+}
