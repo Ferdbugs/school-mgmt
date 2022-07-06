@@ -13,6 +13,18 @@
             <label>Email</label>
             <input type="text" class="form-control" id="email" [(ngModel)]="student.email" name="email"/>
         </div>
+        <div class="form-group mt-2">
+            <label>Grade</label>
+            <input type="text" class="form-control" id="grade" [(ngModel)]="student.grade" name="grade"/>
+        </div>
+        <div class="form-group mt-2">
+            <label>Type</label>
+            <select [(ngModel)]="student.type" name="type" class="form-select" aria-label="Default select example">
+                <option selected>Select</option>
+                <option value="external">External</option>
+                <option value="internal">Internal</option>
+            </select>        
+        </div>
         <button type="submit" class="btn btn-primary mt-4">Submit</button>
     </form>
 </div>

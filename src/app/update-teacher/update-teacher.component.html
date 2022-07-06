@@ -1,0 +1,31 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="mt-4">Create Teacher</h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group mt-2">
+            <label>First Name</label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="teacher.firstName" name="firstName"/>
+        </div>
+        <div class="form-group mt-2">
+            <label>Last Name</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="teacher.lastName" name="lastName"/>
+        </div>
+        <div class="form-group mt-2">
+            <label>Email</label>
+            <input type="text" class="form-control" id="email" [(ngModel)]="teacher.email" name="email"/>
+        </div>
+        <div class="form-group mt-2">
+            <label>Teacher Subjects:</label>
+            <div class="mt-1" style="margin-left:12px" *ngFor="let subject of teacherSubjects">Subject Name: {{subject.subjectName}}, Grade: {{subject.grade}}</div>
+        </div>
+        <div class="form-group mt-2">
+            <label>Subjects:</label>
+            <select (change)="addSubject($event.target.value)" name="subjects" class="form-select" aria-label="Default select example">
+                <option selected>Select</option>
+                <option  value="{{subject.key}}" *ngFor="let subject of subjects | keyvalue">
+                    Name: {{subject.value.subjectName}}, Grade: {{subject.value.grade}}
+                </option>
+            </select>        
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Update</button>
+    </form>
+</div>
