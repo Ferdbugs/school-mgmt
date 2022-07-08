@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Student } from './student';
 import { Observable } from 'rxjs';
+import { Subject } from './subject';
+import { Teacher } from './teacher';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +26,14 @@ export class StudentService {
 
   createStudent(student: Student): Observable<Object>{
     return this.httpClient.post(`${this.baseUrl}/student/create`,student)
+  }
+
+  getStudentSubjects(grade: number): Observable<Subject[]> {
+    return this.httpClient.get<Subject[]>(this.baseUrl+'/subjectbygrade/' + grade);
+  }
+
+  getStudentByGrade(grade: number): Observable<Student[]> {
+    return this.httpClient.get<Student[]>(this.baseUrl+'/studentbygrade/' + grade);
   }
 
   getStudentById(id: number): Observable<Student>{

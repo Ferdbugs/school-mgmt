@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { Injectable } from '@angular/core';
 export class LoginService {
   private loggedIn = false;
   private loginUrl = 'http://localhost:8080/api/v1/login';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   public login(username: string, password: string) {
     let options = {
@@ -27,6 +28,10 @@ export class LoginService {
       
       localStorage.setItem('JWT-ACCESS-TOKEN',"Bearer "+ response.access_token);
       localStorage.setItem('JWT-REFRESH-TOKEN',"Bearer "+ response.refresh_token);
+
+      if(response.access_token){
+        this.router.navigate(['/students'])
+      }
     });
   }
 }

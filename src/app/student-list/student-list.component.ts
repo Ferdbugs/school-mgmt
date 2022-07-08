@@ -11,7 +11,7 @@ import { LoginService } from '../login.service';
 })
 export class StudentListComponent implements OnInit {
 
-  students: Student[];
+  students: any;
 
   constructor(private studentService: StudentService, private router: Router, private loginService: LoginService) { }
 
@@ -22,9 +22,12 @@ export class StudentListComponent implements OnInit {
 
   private getStudentList(){
     this.studentService.getStudentList().subscribe(data => {
-      console.log(data);
-      
+      this.students = data;
     })
+  }
+
+  getStudentDetails(id:number){
+    this.router.navigate(['/student/details/',id])
   }
 
   updateStudent(id:number){

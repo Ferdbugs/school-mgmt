@@ -11,12 +11,14 @@ import { StudentService } from '../student.service';
 export class CreateStudentComponent implements OnInit {
 
   student: Student = new Student();
+  students: Student[] = [];
   constructor(private studentService: StudentService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
   saveStudent(){
+
     this.studentService.createStudent(this.student).subscribe(data => {
       console.log("Student Created: ",data); 
       this.router.navigate(['/students'])
@@ -25,7 +27,16 @@ export class CreateStudentComponent implements OnInit {
   }
    
   onSubmit(): void {
-    this.saveStudent();
+
+    this.studentService.getStudentByGrade(this.student.grade).subscribe(data => {
+      if(data.length<500){
+        this.saveStudent();
+      }
+      else{
+        window.alert("This grade is full!");
+      }
+    })
+
   }
 
 }

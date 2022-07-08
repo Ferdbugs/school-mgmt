@@ -9,8 +9,13 @@ import { CreateSubjectComponent } from './create-subject/create-subject.componen
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { CreateTeacherComponent } from './create-teacher/create-teacher.component';
 import { UpdateTeacherComponent } from './update-teacher/update-teacher.component';
+import { LoginComponent } from './login/login.component';
+import { StudentDetailsComponent } from './student-details/student-details.component';
 
 const routes: Routes = [
+  {
+    path: "login", component:LoginComponent,
+  },
   {
     path: "students", component:StudentListComponent
   },
@@ -18,10 +23,13 @@ const routes: Routes = [
     path: "student/create", component:CreateStudentComponent
   },
   {
+    path: "student/details/:id", component:StudentDetailsComponent
+  },
+  {
     path: "student/update/:id", component:UpdateStudentComponent
   },
   {
-    path: '', redirectTo: 'students', pathMatch: 'full'
+    path: '', redirectTo: 'login', pathMatch: 'full'
   },
   {
     path: "subjects", component:SubjectListComponent

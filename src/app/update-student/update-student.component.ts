@@ -11,6 +11,7 @@ import { StudentService } from '../student.service';
 export class UpdateStudentComponent implements OnInit {
 
   student: Student = new Student();
+  time: string = "";
   constructor(private studentService: StudentService, private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
@@ -20,15 +21,23 @@ export class UpdateStudentComponent implements OnInit {
       console.log(err);
     }
     )
+    
+    this.time = new Date().toLocaleString('en-US', { hour: 'numeric', hour12: true });
   }
 
   onSubmit(){
-    this.studentService.updateStudent(this.route.snapshot.params['id'],this.student).subscribe(data =>{
-      this.router.navigate(['/students']);
-    }, err=>{
-      console.log(err);
-      
-    })
+
+    if(this.student.type=="external" && this.time!="12 AM"){
+      window.alert("Sorry, this student's details can only be updated at 12 AM.")
+    }
+    else {
+      this.studentService.updateStudent(this.route.snapshot.params['id'],this.student).subscribe(data =>{
+        this.router.navigate(['/students']);
+      }, err=>{
+        console.log(err);
+        
+      })
+    }
   }
 
 }

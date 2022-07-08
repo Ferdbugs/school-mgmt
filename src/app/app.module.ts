@@ -12,6 +12,8 @@ import { CreateSubjectComponent } from './create-subject/create-subject.componen
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { CreateTeacherComponent } from './create-teacher/create-teacher.component';
 import { UpdateTeacherComponent } from './update-teacher/update-teacher.component';
+import { LoginComponent } from './login/login.component';
+import { StudentDetailsComponent } from './student-details/student-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,9 @@ import { UpdateTeacherComponent } from './update-teacher/update-teacher.componen
     CreateSubjectComponent,
     TeacherListComponent,
     CreateTeacherComponent,
-    UpdateTeacherComponent
+    UpdateTeacherComponent,
+    LoginComponent,
+    StudentDetailsComponent
   ],
   imports: [
     BrowserModule,

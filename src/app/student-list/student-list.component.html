@@ -20,6 +20,7 @@
             <td class="align-middle">{{student.type}}</td>
             <td>
                 <button (click)="updateStudent(student.id)" class="btn btn-primary" style="margin-right:12px">Update</button>
+                <button (click)="getStudentDetails(student.id)" class="btn btn-primary" style="margin-right:12px">Details</button>   
                 <button (click)="deleteStudent(student.id)" class="btn btn-danger">Delete</button>   
             </td>
         </tr>

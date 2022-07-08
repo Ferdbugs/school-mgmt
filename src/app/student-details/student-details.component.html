@@ -1,0 +1,25 @@
+<h2 class="mt-4 mb-4">Student Details</h2>
+<div>
+    <div>
+        <label><b>First Name:</b></label> {{student.firstName}}
+    </div>
+    <div style="margin-top:4px">
+        <label><b>Last Name:</b></label> {{student.lastName}}
+    </div>
+    <div style="margin-top:4px">
+        <label><b>Email:</b></label> {{student.email}}
+    </div>
+    <div style="margin-top:4px">
+        <label><b>Grade:</b></label> {{student.grade}}
+    </div>
+    <div style="margin-top:4px">
+        <label><b>Subjects:</b></label>
+        <span style="margin-left:6px" *ngFor="let subject of studentSubjects">{{subject.subjectName}}</span>
+    </div>
+    <div style="margin-top:4px">
+        <label><b>Teachers:</b></label>
+        <span style="margin-left:6px" *ngFor="let teacher of studentTeachers">
+            <br> Name: {{teacher.firstName}} {{teacher.lastName}}
+        </span>
+    </div>
+</div>
